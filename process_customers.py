@@ -9,7 +9,7 @@ def read_customer_samples(filename):
 			for row in handle:
 				client_dict[row['CUSTOMER_CODE']] = 1
 	except IOError:
-		print "Error reading customer samples file."
+		print "Error reading customer samples file - %s. Please place all data files in the current directory." %filename
 		sys.exit(1)
 	except Exception:
 		print "Unexpected error:", sys.exc_info()[0]
@@ -22,7 +22,7 @@ def create_customer_subset(filename, newfilename, client_dict):
 	try:
 		fhandle = open(filename,'r')
 	except IOError:
-		print "Error reading customer samples file."
+		print "Error reading customer file - %s. Please place all data files in the current directory." %filename
 		sys.exit(1)
 	except Exception:
 		print "Unexpected error:", sys.exc_info()[0]
@@ -68,7 +68,7 @@ def create_invoice_subset(filename, newfilename, client_dict):
 	try:
 		fhandle = open(filename,'r')
 	except IOError:
-		print "Error reading customer invoice file."
+		print "Error reading customer invoice file - %s. Please place all data files (.CSV) in the current directory" %filename
 		sys.exit(1)
 	except Exception:
 		print "Unexpected error:", sys.exc_info()[0]
@@ -115,7 +115,7 @@ def create_invoice_items_subset(filename, newfilename, invoice_dict):
 	try:
 		fhandle = open(filename,'r')
 	except IOError:
-		print "Error reading customer invoice items file."
+		print "Error reading customer invoice items file - %s. Please place all data files (.CSV) in the current directory" %filename
 		sys.exit(1)
 	except Exception:
 		print "Unexpected error:", sys.exc_info()[0]
